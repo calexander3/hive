@@ -9,6 +9,7 @@ Window *s_menu_window;
 MenuLayer *s_menu_layer;
 bool s_menu_visible;
 GFont s_current_temperature_font;
+GFont s_pin_font;
 static bool s_pin_backlight_enabled;
 
 AppScreen s_screen = SCREEN_LOADING;

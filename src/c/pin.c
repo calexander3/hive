@@ -9,13 +9,13 @@ static void draw_text(GContext *ctx, const char *text, GFont font, GRect rect,
 
 void draw_pin_screen(GContext *ctx, GRect bounds) {
 #ifdef PBL_PLATFORM_FLINT
-  GFont pin_font = fonts_get_system_font(FONT_KEY_GOTHIC_28_BOLD);
+  GFont pin_font = s_pin_font ? s_pin_font : fonts_get_system_font(FONT_KEY_GOTHIC_18_BOLD);
   int pin_y = 8;
   int pin_height = 34;
   int body_y = 46;
   GFont body_font = fonts_get_system_font(FONT_KEY_GOTHIC_18);
 #else
-  GFont pin_font = fonts_get_system_font(FONT_KEY_BITHAM_30_BLACK);
+  GFont pin_font = s_pin_font ? s_pin_font : fonts_get_system_font(FONT_KEY_GOTHIC_28_BOLD);
   int pin_y = 52;
   int pin_height = 38;
   int body_y = 96;

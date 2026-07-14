@@ -55,9 +55,13 @@ static void init(void) {
   copy_text(s_title, sizeof(s_title), "Hive");
   copy_text(s_body, sizeof(s_body), "Connecting...");
 #ifdef PBL_PLATFORM_FLINT
+  s_pin_font =
+    fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_ROBOTO_MONO_BOLD_24));
   s_current_temperature_font =
     fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_ROBOTO_MONO_BOLD_54));
 #else
+  s_pin_font =
+    fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_ROBOTO_MONO_BOLD_32));
   s_current_temperature_font =
     fonts_load_custom_font(resource_get_handle(RESOURCE_ID_FONT_ROBOTO_MONO_BOLD_64));
 #endif
@@ -82,6 +86,10 @@ static void deinit(void) {
   if (s_current_temperature_font) {
     fonts_unload_custom_font(s_current_temperature_font);
     s_current_temperature_font = NULL;
+  }
+  if (s_pin_font) {
+    fonts_unload_custom_font(s_pin_font);
+    s_pin_font = NULL;
   }
   if (s_menu_window) {
     window_destroy(s_menu_window);

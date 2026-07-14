@@ -45,6 +45,7 @@ extern Window *s_menu_window;
 extern MenuLayer *s_menu_layer;
 extern bool s_menu_visible;
 extern GFont s_current_temperature_font;
+extern GFont s_pin_font;
 extern AppScreen s_screen;
 extern DashboardState s_dashboard;
 extern HiveMenuItem s_menu_items[MAX_MENU_ITEMS];
